@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harmony Health Hub</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/CSS/sleep-styles.css" />
+</head>
+<body>
+  <header>
+    <div class="top-bar">
+      <a href="home" class="logo" data-page="home">HARMONY<br/>HEALTH<br/>HUB</a>
+
+      <nav>
+        <ul>
+          <li><a href="nutrition" class="nav-link" data-page="nutrition">Nutrition</a></li>
+          <li><a href="sleep" class="nav-link" data-page="sleep">Sleep</a></li>
+          <li><a href="fitness" class="nav-link" data-page="fitness">Fitness</a></li>
+          <li><a href="mental-health" class="nav-link" data-page="mental-health">Mental Health</a></li>
+          <li><a href="product-reviews" class="nav-link" data-page="product-reviews">Product Reviews</a></li>
+        </ul>
+      </nav>
+
+      <div class="utility">
+        <button id="modeToggle" class="toggle" aria-label="Toggle light/dark mode"></button>
+        <div class="search" tabindex="0">
+          <svg><circle cx="9" cy="9" r="7" fill="none" stroke-width="2"/><line x1="14" y1="14" x2="19" y2="19" stroke-width="2"/></svg>
+          <span>Search</span>
+        </div>
+        <!-- Animated hamburger -->
+        <div class="hamburger" tabindex="0"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="content"><!-- JS injects page here --></main>
+
+  <footer class="hhh-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="home" class="footer-logo">HARMONY<span>HEALTH HUB</span></a>
+        <nav class="social-icons">
+          <a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a>
+          <a aria-label="Twitter"  href="#"><i class="fab fa-x-twitter"></i></a>
+          <a aria-label="Pinterest"href="#"><i class="fab fa-pinterest-p"></i></a>
+          <a aria-label="Instagram"href="#"><i class="fab fa-instagram"></i></a>
+          <a aria-label="YouTube"  href="#"><i class="fab fa-youtube"></i></a>
+          <a aria-label="Flipboard"href="#"><i class="fab fa-flipboard"></i></a>
+        </nav>
+      </div>
+  
+      <nav class="footer-nav">
+        <ul>
+          <li>
+            <a data-page="home" href="home" >Home</a>
+          </li>
+          <li>
+            <a data-page="nutrition" href="nutrition" >Nutrition</a>
+          </li>
+          <li>
+            <a data-page="sleep" href="sleep" >Sleep</a>
+          </li>
+          <li>
+            <a data-page="fitness" href="fitness" >Fitness</a>
+          </li>
+          <li>
+            <a data-page="mental-health" href="mental-health" >Mental&nbsp;Health</a>
+          </li>
+          <li>
+            <a data-page="product-reviews" href="product-reviews" >Product&nbsp;Reviews</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Advertising Policy</a></li>
+          <li><a href="#">Health Topics</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Medical Affairs</a></li>
+          <li><a href="#">Content Integrity</a></li>
+          <li><a href="#">Newsletters</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>© 2025 Harmony Health Hub. All rights reserved. Content is for informational purposes and does not constitute medical advice.</p>
+      <div class="brands">
+        <span>OUR BRANDS</span>
+        <a href="#">Harmony Health Hub</a>
+        <a href="#">Mindful Living</a>
+        <a href="#">Fit Future</a>
+      </div>
+    </div>
+  </footer>
+  
+
+  <script src="/JavaScript/sleep-script.js" defer></script>
+</body>
+</html>
