@@ -185,5 +185,31 @@
   
   
   /* optional hover feedback */
- 
- /* nav li:hover a  { color: var(--hover-text); }*/
+  /* nav li:hover a  { color: var(--hover-text); }*/
+
+ .hhh-footer .social-icons{
+  display:flex;                /* keep them in one row            */
+  align-items:center;
+  gap:1.25rem;                 /* equal breathing-room            */
+  flex-wrap:wrap;              /* wrap on small screens           */
+}
+
+.hhh-footer .social-icons img{
+  width:26px;                  /* << change this value to taste   */
+  height:26px;                 /* keep them square                */
+  object-fit:contain;          /* no distortion                   */
+  filter:grayscale(1);         /* subtle, matches Healthline look */
+  transition:filter .2s ,transform .2s;
+}
+
+.hhh-footer .social-icons img:hover{
+  filter:none;                 /* color-pop on hover              */
+  transform:scale(1.08);
+}
+
+/* OPTIONAL – shrink the fallback <i> icon fonts too
+   (only matters if you ever use <i class="fab …">) */
+.hhh-footer .social-icons i{
+  font-size:26px;
+  line-height:1;
+}

@@ -1,3 +1,49 @@
+(() => {
+  /* ------------------------------------------------------------ */
+  /*  THEME TOGGLE                                                */
+  /* ------------------------------------------------------------ */
+  const root = document.documentElement;
+  const modeToggle = document.getElementById('modeToggle');
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') root.classList.add('dark');
+  modeToggle.addEventListener('click', () => {
+    root.classList.toggle('dark');
+    localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+  });
+
+  /* ------------------------------------------------------------ */
+  /*  HAMBURGER ANIMATION                                         */
+  /* ------------------------------------------------------------ */
+  const burger = document.querySelector('.hamburger');
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('open');
+    // potential: toggle a side‑menu here later
+  });
+
+  /* ------------------------------------------------------------ */
+  /*  SIMPLE ROUTER                                               */
+  /* ------------------------------------------------------------ */
+  const contentEl = document.getElementById('content');
+  const links = document.querySelectorAll('.nav-link, .logo, .footer-nav a');
+
+  function setActive(page){
+    links.forEach(l=>l.classList.toggle('active', l.dataset.page===page));
+  }
+
+  function loadPage(page, push=true){
+    if(page==='home'){
+      contentEl.innerHTML = HOME_TEMPLATE;
+    }else{
+      fetch(`${page}.html`).then(r=>r.ok?r.text():'<p>Page not found.</p>').then(html=>contentEl.innerHTML=html);
+    }
+    setActive(page);
+    if(push) history.pushState({page}, '', page==='home'?'index.html':`${page}.html`);
+  }
+
+  links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();loadPage(a.dataset.page);}));
+  window.addEventListener('popstate', e => loadPage(e.state?.page || 'home', false));
+})();  
+ 
 /* ----------------------------------------------------------------
    1. DATA SOURCE – one master object, keys mirror section IDs
    ---------------------------------------------------------------- */
@@ -278,4 +324,28 @@
   // Editors' Picks
   buildList(sections.editorsPicks, '#editorsPicks-list');
   // More in Nutrition
-  buildList(sections.moreNutrition, '#moreNutrition-list');  
+  buildList(sections.moreNutrition, '#moreNutrition-list');
+  
+/* RELOAD */
+window.addEventListener('DOMContentLoaded', () => {
+  // derive page from the current URL (e.g. /sleep.html → "sleep")
+  const start = location.pathname.replace(/^\/|\.html$/g,'') || 'home';
+  loadPage(start, false);           // don’t pushState again
+});
+
+function loadPage(page, push = true) {
+  const url = page === 'home' ? 'home.html' : `${page}.html`;
+
+  fetch(url)
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.text();
+    })
+    .then(html => contentEl.innerHTML = html)
+    .catch(err => {
+      contentEl.innerHTML = `<p class="error">Page failed to load (${err.message})</p>`;
+    });
+
+  setActive(page);
+  if (push) history.pushState({ page }, '', page === 'home' ? 'index.html' : `${page}.html`);
+}

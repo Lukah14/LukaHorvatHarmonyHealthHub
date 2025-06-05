@@ -98,4 +98,28 @@
     /* ------------------------------------------------------------ */
     const firstPage = location.pathname.match(/([A-Za-z\-]+)\.html$/)?.[1] || 'home';
     loadPage(firstPage,false);
-  })();
+})();
+
+/* RELOAD */
+window.addEventListener('DOMContentLoaded', () => {
+  // derive page from the current URL (e.g. /sleep.html → "sleep")
+  const start = location.pathname.replace(/^\/|\.html$/g,'') || 'home';
+  loadPage(start, false);           // don’t pushState again
+});
+
+function loadPage(page, push = true) {
+  const url = page === 'home' ? 'home.html' : `${page}.html`;
+
+  fetch(url)
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.text();
+    })
+    .then(html => contentEl.innerHTML = html)
+    .catch(err => {
+      contentEl.innerHTML = `<p class="error">Page failed to load (${err.message})</p>`;
+    });
+
+  setActive(page);
+  if (push) history.pushState({ page }, '', page === 'home' ? 'index.html' : `${page}.html`);
+}

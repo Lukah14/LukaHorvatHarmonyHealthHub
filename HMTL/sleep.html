@@ -19,11 +19,11 @@
 
       <nav>
         <ul>
-          <li><a href="nutrition" class="nav-link" data-page="nutrition">Nutrition</a></li>
-          <li><a href="sleep" class="nav-link" data-page="sleep">Sleep</a></li>
-          <li><a href="fitness" class="nav-link" data-page="fitness">Fitness</a></li>
-          <li><a href="mental-health" class="nav-link" data-page="mental-health">Mental Health</a></li>
-          <li><a href="product-reviews" class="nav-link" data-page="product-reviews">Product Reviews</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Nutrition.png" alt=""><a href="nutrition.html" class="nav-link" data-page="nutrition">Nutrition</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Sleep.png" alt=""><a href="sleep.html" class="nav-link" data-page="sleep">Sleep</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Fitness.png" alt=""><a href="fitness.html" class="nav-link" data-page="fitness">Fitness</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Mental_Health.png" alt=""><a href="mental_health.html" class="nav-link" data-page="mental-health">Mental Health</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Product_REviews.png" alt=""><a href="product_reviews.html" class="nav-link" data-page="product-reviews">Product Reviews</a></li>
         </ul>
       </nav>
 
@@ -39,41 +39,57 @@
     </div>
   </header>
 
-  <main id="content"><!-- JS injects page here --></main>
+  <section class="sleep-hero">
+    <picture class="sleep-hero__img">
+      <!-- fallback -->
+      <img src="sleep_hero_background.png" alt="Person peacefully sleeping">
+    </picture>
+  
+    <div class="sleep-hero__copy">
+      <h1 class="sleep-hero__title">Better&nbsp;Sleep Starts Here</h1>
+      <p class="sleep-hero__tagline">
+        Evidence-based guides, relaxing routines, and expert picks to help you
+        fall asleep faster — and wake up restored.
+      </p>
+      <a href="#better-sleep" class="btn btn-primary">Explore Tips</a>
+    </div>
+  </section>
+
+  <main id="content"></main>
 
   <footer class="hhh-footer">
     <div class="footer-top">
       <div class="footer-brand">
         <a href="home" class="footer-logo">HARMONY<span>HEALTH HUB</span></a>
         <nav class="social-icons">
-          <a aria-label="Facebook" href="#"><i class="fab fa-facebook-f"></i></a>
-          <a aria-label="Twitter"  href="#"><i class="fab fa-x-twitter"></i></a>
-          <a aria-label="Pinterest"href="#"><i class="fab fa-pinterest-p"></i></a>
-          <a aria-label="Instagram"href="#"><i class="fab fa-instagram"></i></a>
-          <a aria-label="YouTube"  href="#"><i class="fab fa-youtube"></i></a>
-          <a aria-label="Flipboard"href="#"><i class="fab fa-flipboard"></i></a>
+          <a aria-label="Facebook"  href="#"><img src="/Icons/Facebook_Logo_Icon.png"  alt="Facebook"></a>
+          <a aria-label="Twitter"   href="#"><img src="/Icons/X_Logo_Icon.png"   alt="Twitter"></a>
+          <a aria-label="Pinterest" href="#"><img src="/Icons/Pinterest_Logo_Icon.png" alt="Pinterest"></a>
+          <a aria-label="Instagram" href="#"><img src="/Icons/Instagram_Logo_Icon.png" alt="Instagram"></a>
+          <a aria-label="YouTube"   href="#"><img src="/Icons/YouTube_Logo_Icon.png"   alt="YouTube"></a>
+          <a aria-label="Flipboard" href="#"><img src="/Icons/Flipboard_Logo_Icon.png" alt="Flipboard"></a>
         </nav>
       </div>
   
       <nav class="footer-nav">
         <ul>
           <li>
-            <a data-page="home" href="home" >Home</a>
+            <a data-page="home" href="home.html" >Home</a>
           </li>
           <li>
-            <a data-page="nutrition" href="nutrition" >Nutrition</a>
+            <a data-page="nutrition" href="nutrition.html" >Nutrition</a>
           </li>
           <li>
-            <a data-page="sleep" href="sleep" >Sleep</a>
+            <a data-page="sleep" href="sleep.html" >Sleep</a>
           </li>
           <li>
-            <a data-page="fitness" href="fitness" >Fitness</a>
+            <a data-page="fitness" href="fitness.html" >Fitness</a>
           </li>
           <li>
-            <a data-page="mental-health" href="mental-health" >Mental&nbsp;Health</a>
+            <a data-page="mental-health" href="mental_health.html" >Mental&nbsp;Health</a>
           </li>
           <li>
-            <a data-page="product-reviews" href="product-reviews" >Product&nbsp;Reviews</a>
+            <a data-page="product-reviews" href="product_reviews.html" >Product&nbsp;Reviews</a>
           </li>
         </ul>
       </nav>
@@ -105,7 +121,6 @@
       </div>
     </div>
   </footer>
-  
 
   <script src="/JavaScript/sleep-script.js" defer></script>
 </body>

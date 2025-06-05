@@ -1,11 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harmony Health Hub</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/CSS/fitness-styles.css" />
 </head>
 <body>
-    
+  <header>
+    <div class="top-bar">
+      <a href="home" class="logo" data-page="home">HARMONY<br/>HEALTH<br/>HUB</a>
+
+      <nav>
+        <ul>
+          <li><img src="/Navigation-Icons/Explore_By-Nutrition.png" alt=""><a href="nutrition.html" class="nav-link" data-page="nutrition">Nutrition</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Sleep.png" alt=""><a href="sleep.html" class="nav-link" data-page="sleep">Sleep</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Fitness.png" alt=""><a href="fitness.html" class="nav-link" data-page="fitness">Fitness</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Mental_Health.png" alt=""><a href="mental_health.html" class="nav-link" data-page="mental-health">Mental Health</a></li>
+          <li><img src="/Navigation-Icons/Explore_By-Product_REviews.png" alt=""><a href="product_reviews.html" class="nav-link" data-page="product-reviews">Product Reviews</a></li>
+        </ul>
+      </nav>
+
+      <div class="utility">
+        <button id="modeToggle" class="toggle" aria-label="Toggle light/dark mode"></button>
+        <div class="search" tabindex="0">
+          <svg><circle cx="9" cy="9" r="7" fill="none" stroke-width="2"/><line x1="14" y1="14" x2="19" y2="19" stroke-width="2"/></svg>
+          <span>Search</span>
+        </div>
+        <!-- Animated hamburger -->
+        <div class="hamburger" tabindex="0"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sleep-hero">
+    <picture class="sleep-hero__img">
+      <!-- fallback -->
+      <img src="sleep_hero_background.png" alt="Person peacefully sleeping">
+    </picture>
+  
+    <div class="sleep-hero__copy">
+      <h1 class="sleep-hero__title">Better&nbsp;Sleep Starts Here</h1>
+      <p class="sleep-hero__tagline">
+        Evidence-based guides, relaxing routines, and expert picks to help you
+        fall asleep faster — and wake up restored.
+      </p>
+      <a href="#better-sleep" class="btn btn-primary">Explore Tips</a>
+    </div>
+  </section>
+
+  <main id="content"></main>
+
+  <footer class="hhh-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="home" class="footer-logo">HARMONY<span>HEALTH HUB</span></a>
+        <nav class="social-icons">
+          <a aria-label="Facebook"  href="#"><img src="/Icons/Facebook_Logo_Icon.png"  alt="Facebook"></a>
+          <a aria-label="Twitter"   href="#"><img src="/Icons/X_Logo_Icon.png"   alt="Twitter"></a>
+          <a aria-label="Pinterest" href="#"><img src="/Icons/Pinterest_Logo_Icon.png" alt="Pinterest"></a>
+          <a aria-label="Instagram" href="#"><img src="/Icons/Instagram_Logo_Icon.png" alt="Instagram"></a>
+          <a aria-label="YouTube"   href="#"><img src="/Icons/YouTube_Logo_Icon.png"   alt="YouTube"></a>
+          <a aria-label="Flipboard" href="#"><img src="/Icons/Flipboard_Logo_Icon.png" alt="Flipboard"></a>
+        </nav>
+      </div>
+  
+      <nav class="footer-nav">
+        <ul>
+          <li>
+            <a data-page="home" href="home.html" >Home</a>
+          </li>
+          <li>
+            <a data-page="nutrition" href="nutrition.html" >Nutrition</a>
+          </li>
+          <li>
+            <a data-page="sleep" href="sleep.html" >Sleep</a>
+          </li>
+          <li>
+            <a data-page="fitness" href="fitness.html" >Fitness</a>
+          </li>
+          <li>
+            <a data-page="mental-health" href="mental_health.html" >Mental&nbsp;Health</a>
+          </li>
+          <li>
+            <a data-page="product-reviews" href="product_reviews.html" >Product&nbsp;Reviews</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="footer-links">
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Advertising Policy</a></li>
+          <li><a href="#">Health Topics</a></li>
+        </ul>
+        <ul>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Medical Affairs</a></li>
+          <li><a href="#">Content Integrity</a></li>
+          <li><a href="#">Newsletters</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>© 2025 Harmony Health Hub. All rights reserved. Content is for informational purposes and does not constitute medical advice.</p>
+      <div class="brands">
+        <span>OUR BRANDS</span>
+        <a href="#">Harmony Health Hub</a>
+        <a href="#">Mindful Living</a>
+        <a href="#">Fit Future</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/JavaScript/fitness-script.js" defer></script>
 </body>
 </html>
