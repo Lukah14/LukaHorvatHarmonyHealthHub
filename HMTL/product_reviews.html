@@ -11,20 +11,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/CSS/product_reviews-styles.css" />
+  <link rel="stylesheet" href="/hhh-theme.css" />
 </head>
 <body>
   <header>
     <div class="top-bar">
       <a href="home" class="logo" data-page="home">HARMONY<br/>HEALTH<br/>HUB</a>
-
+     
       <nav>
-        <ul>
-          <li><img src="/Navigation-Icons/Explore_By-Nutrition.png" alt=""><a href="nutrition.html" class="nav-link" data-page="nutrition">Nutrition</a></li>
-          <li><img src="/Navigation-Icons/Explore_By-Sleep.png" alt=""><a href="sleep.html" class="nav-link" data-page="sleep">Sleep</a></li>
-          <li><img src="/Navigation-Icons/Explore_By-Fitness.png" alt=""><a href="fitness.html" class="nav-link" data-page="fitness">Fitness</a></li>
-          <li><img src="/Navigation-Icons/Explore_By-Mental_Health.png" alt=""><a href="mental_health.html" class="nav-link" data-page="mental-health">Mental Health</a></li>
-          <li><img src="/Navigation-Icons/Explore_By-Product_REviews.png" alt=""><a href="product_reviews.html" class="nav-link" data-page="product-reviews">Product Reviews</a></li>
-        </ul>
+        <ul id="navbar"></ul>
       </nav>
 
       <div class="utility">
@@ -39,25 +34,73 @@
     </div>
   </header>
 
-  <section class="sleep-hero">
-    <picture class="sleep-hero__img">
-      <!-- fallback -->
-      <img src="sleep_hero_background.png" alt="Person peacefully sleeping">
-    </picture>
-  
-    <div class="sleep-hero__copy">
-      <h1 class="sleep-hero__title">Better&nbsp;Sleep Starts Here</h1>
-      <p class="sleep-hero__tagline">
-        Evidence-based guides, relaxing routines, and expert picks to help you
-        fall asleep faster — and wake up restored.
-      </p>
-      <a href="#better-sleep" class="btn btn-primary">Explore Tips</a>
+  <main id="content">
+
+    <!-- HERO -------------------------------------------------------->
+    <!-- identical markup + artwork path that Healthline uses -->
+    <div data-hero-image="hero-image" class="hero reviews-hero">
+      <div class="hero-inner">
+        <h1>Product Reviews</h1>
+        <p>Simplify your search for health products with our evidence-based reviews and brand comparisons.</p>
+      </div>
+      <picture>
+        <source
+          srcset="https://media.post.rvohealth.io/wp-content/uploads/2022/06/1000x400_Reviews_Hub_Hero_b.jpg"
+          media="(max-width: 768px)">
+        <img
+          src="https://media.post.rvohealth.io/wp-content/uploads/2022/06/3600x600_Reviews_Hub_Hero_b-scaled.jpg"
+          alt="">
+      </picture>
     </div>
-  </section>
+  
+    <!-- ==========   L I S T I N G   S E C T I O N S   ========== -->
+  
+    <!-- 01 · LATEST (big hero list) -->
+    <section>
+      <h2>LATEST</h2>
+      <ul id="latest-list" class="article-list latest"></ul>
+    </section>
+  
+    <!-- EXPLORE-BY — horizontal scroll cards -->
+    <section class="explore-by">
+      <h2>EXPLORE&nbsp;BY</h2>
+      <div id="explore-row" class="explore-row"></div>
+    </section>
+  
+    <!-- 02 · MOST POPULAR  -->
+    <section>
+      <h2>MOST POPULAR</h2>
+      <ul id="most-popular-list" class="article-list two-col"></ul>
+    </section>
+  
+    <!-- 03 · EDITORS’ PICKS -->
+    <section>
+      <h2>EDITORS' PICKS</h2>
+      <ul id="editors-picks-list" class="article-list two-col"></ul>
+    </section>
+  
+    <!-- From here down every widget is copy-pasted from the screenshots.
+         Each gets its own <section> with the pattern  <id>-list            -->
+  
+    <section><h2>VITAMINS AND SUPPLEMENTS</h2><ul id="vitamins-supplements-list" class="article-list two-col"></ul></section>
+    <section><h2>SLEEP</h2><ul id="sleep-list" class="article-list two-col"></ul></section>
+    <section><h2>CBD</h2><ul id="cbd-list" class="article-list two-col"></ul></section>
+    <section><h2>MENTAL HEALTH</h2><ul id="mental-health-list" class="article-list two-col"></ul></section>
+    <section><h2>NUTRITION</h2><ul id="nutrition-list" class="article-list two-col"></ul></section>
+    <section><h2>AT-HOME TESTING</h2><ul id="at-home-testing-list" class="article-list two-col"></ul></section>
+    <section><h2>WOMEN'S HEALTH</h2><ul id="womens-health-list" class="article-list two-col"></ul></section>
+    <section><h2>MEN'S HEALTH</h2><ul id="mens-health-list" class="article-list two-col"></ul></section>
+    <section><h2>FITNESS</h2><ul id="fitness-list" class="article-list two-col"></ul></section>
+    <section><h2>PARENTHOOD</h2><ul id="parenthood-list" class="article-list two-col"></ul></section>
+    <section><h2>VISION</h2><ul id="vision-list" class="article-list two-col"></ul></section>
+    <section><h2>HEARING</h2><ul id="hearing-list" class="article-list two-col"></ul></section>
+    <section><h2>SKIN CARE</h2><ul id="skin-care-list" class="article-list two-col"></ul></section>
+  
+  </main>
 
-  <main id="content"></main>
+  <footer id="hhh-footer"></footer>
 
-  <footer class="hhh-footer">
+<!--   <footer class="hhh-footer">
     <div class="footer-top">
       <div class="footer-brand">
         <a href="home" class="footer-logo">HARMONY<span>HEALTH HUB</span></a>
@@ -120,8 +163,10 @@
         <a href="#">Fit Future</a>
       </div>
     </div>
-  </footer>
+  </footer> -->
 
   <script src="/JavaScript/product_reviews-script.js" defer></script>
+  <script src="/Dynamic-navbar.js" defer></script>
+  <script src="/Dynamic-footer.js" defer></script>
 </body>
 </html>

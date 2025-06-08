@@ -10,8 +10,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet">
-
   <link rel="stylesheet" href="/CSS/home-styles.css" />
+  <link rel="stylesheet" href="/hhh-theme.css" />
+
+
 </head>
 <body>
   <header>
@@ -19,13 +21,7 @@
       <a href="home" class="logo" data-page="home">HARMONY<br/>HEALTH<br/>HUB</a>
 
       <nav>
-        <ul>
-          <li><img src="/Navigation-Icons/Explore_By-Nutrition.png" alt=""><a href="nutrition.html" class="nav-link" data-page="nutrition">Nutrition</a></li>
-          <li><img src="/Navigation-Icons/Explore_By-Sleep.png" alt=""><a href="sleep.html" class="nav-link" data-page="sleep">Sleep</a></li>
-          <li><img src="/Navigation-Icons/Explore_By-Fitness.png" alt=""><a href="fitness.html" class="nav-link" data-page="fitness">Fitness</a></li>
-          <li><img src="/Navigation-Icons/Explore_By-Mental_Health.png" alt=""><a href="mental_health.html" class="nav-link" data-page="mental-health">Mental Health</a></li>
-          <li><img src="/Navigation-Icons/Explore_By-Product_REviews.png" alt=""><a href="product_reviews.html" class="nav-link" data-page="product-reviews">Product Reviews</a></li>
-        </ul> 
+        <ul id="navbar"></ul>
       </nav>
 
       <div class="utility">
@@ -41,8 +37,9 @@
   </header>
 
   <main id="content"><!-- JS injects page here --></main>
-
-  <footer class="hhh-footer">
+  
+  <footer id="hhh-footer"></footer>
+<!--   <footer class="hhh-footer">
     <div class="footer-top">
       <div class="footer-brand">
         <a href="home" class="footer-logo">HARMONY<span>HEALTH HUB</span></a>
@@ -105,9 +102,11 @@
         <a href="#">Fit Future</a>
       </div>
     </div>
-  </footer>
+  </footer>  -->
   
 
-  <script src="/JavaScript/home-script.js" defer></script>
+  <script src="/JavaScript/home-script.js"  defer></script>
+  <script src="/Dynamic-navbar.js"  defer></script>
+  <script src="/Dynamic-footer.js"  defer></script>
 </body>
 </html>

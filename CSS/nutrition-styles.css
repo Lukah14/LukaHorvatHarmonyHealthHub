@@ -1,5 +1,26 @@
 @import url('/CSS/home-styles.css');
 
+.nutrition-hero{
+    position:relative;
+    min-height:360px;          /* matches Sleep hero height         */
+    background:url('/Backgrounds/nutrition_hero_background.jpg') center/cover no-repeat;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:3rem 1rem;color:#fff;
+  }
+  .nutrition-hero::after{           /* darken for legibility             */
+    content:'';position:absolute;inset:0;background:rgba(0,0,0,.35);
+  }
+  .nutrition-hero > *{position:relative;z-index:1}
+  .nutrition-hero h1{
+    font:800 3rem/1 "Proxima Nova",sans-serif;
+    margin:0 0 .5rem;
+  }
+  .nutrition-hero p{
+    font-size: 1.25rem;
+    max-width:640px;
+    margin:0 auto
+  }
+
 /* Generic stacked list (image left, copy right) */
 .article-list{list-style:none;margin:0;padding:0;display:grid;gap:3rem;}
 .article-list li{display:flex;gap:1.25rem;border-top:1px solid var(--border);padding:20px 0;transition:background .25s,color .25s;}

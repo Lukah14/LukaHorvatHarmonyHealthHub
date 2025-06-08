@@ -100,15 +100,7 @@
     loadPage(firstPage,false);
 })();
 
-/* RELOAD */
-window.addEventListener('DOMContentLoaded', () => {
-  // derive page from the current URL (e.g. /sleep.html → "sleep")
-  const start = location.pathname.replace(/^\/|\.html$/g,'') || 'home';
-  loadPage(start, false);           // don’t pushState again
-});
 
-function loadPage(page, push = true) {
-  const url = page === 'home' ? 'home.html' : `${page}.html`;
 
   fetch(url)
     .then(r => {
@@ -122,4 +114,4 @@ function loadPage(page, push = true) {
 
   setActive(page);
   if (push) history.pushState({ page }, '', page === 'home' ? 'index.html' : `${page}.html`);
-}
+

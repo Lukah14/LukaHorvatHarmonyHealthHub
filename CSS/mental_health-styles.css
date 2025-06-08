@@ -1,5 +1,35 @@
 @import url('/CSS/home-styles.css');
 
+/* ---------- HERO ---------- */
+.hero.mental-hero{
+    position:relative;
+    aspect-ratio: 16/5;
+    background:url('/Backgrounds/mental_health_hero_background.jpg') center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    text-align:center;
+  }
+  .hero.mental-hero::after{            /* dark overlay */
+    content:'';
+    position:absolute;inset:0;
+    background:rgba(0,0,0,.45);
+  }
+  .hero-override{mix-blend-mode: multiply;}
+  .hero-overlay{
+    position:relative;
+    max-width:800px;
+    padding:2rem;
+  }
+  .hero-overlay h1{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,4rem);line-height:1.1;margin:0;}
+  .hero-overlay p{font-size:1.25rem;font-weight:600;margin-top:.5rem;}
+  
+.mental-hero{
+  aspect-ratio:16/5;
+  min-height:auto;   /* overrides the 60vh from .hero */
+}
+
 /* Generic stacked list (image left, copy right) */
 .article-list{list-style:none;margin:0;padding:0;display:grid;gap:3rem;}
 .article-list li{display:flex;gap:1.25rem;border-top:1px solid var(--border);padding:20px 0;transition:background .25s,color .25s;}

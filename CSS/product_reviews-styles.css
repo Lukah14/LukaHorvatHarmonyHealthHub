@@ -1,26 +1,67 @@
 @import url('/CSS/home-styles.css');
 
-/* Generic stacked list (image left, copy right) */
-.article-list{list-style:none;margin:0;padding:0;display:grid;gap:3rem;}
-.article-list li{display:flex;gap:1.25rem;border-top:1px solid var(--border);padding:20px 0;transition:background .25s,color .25s;}
-.article-list li:hover{background:var(--hover-bg);color:var(--hover-text);} 
-.article-list img{flex:0 0 185px;height:140px;object-fit:cover;border-radius:4px;}
-.article-list h3{font-size:1.25rem;font-weight:700;margin-bottom:.35rem;}
-.article-list p{color:var(--muted);}
+/* ---------- HERO ---------- */
+.hero.reviews-hero{
+    position:relative;
+    min-height:360px;
+    aspect-ratio: 16/5;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:3rem 1rem;color:#fff;
+    overflow:hidden;            /* keeps the picture behind content */
+  }
+  .hero.reviews-hero picture,
+  .hero.reviews-hero img{
+    position:absolute;inset:0;width:100%;height:100%;
+    object-fit:cover;
+  }
+  .hero.reviews-hero::after{content:'';position:absolute;inset:0;
+    background:rgba(0,0,0,.35);}         /* darken */
+  .hero-inner{
+    position:relative;z-index:2;
+    max-width:960px;margin-inline:auto;
+    padding:3.5rem 1rem;text-align:center;color:#fff;
+  }
+  .hero-inner h1{
+    font:800 3rem/1 "Proxima Nova",sans-serif;
+    font-size:clamp(2.5rem,6vw,4rem);
+    line-height:1.1;
+    margin:0 0 .5rem;
+  }
 
-/* Horizontal thumb row (Fresh Food Fast) */
-.article-thumb-row{list-style:none;margin:0;padding:0;display:flex;gap:1.5rem;overflow-x:auto;scrollbar-width:none;}
-.article-thumb-row::-webkit-scrollbar{display:none;}
-.article-thumb-row li{min-width:240px;display:block;position:relative;}
-.article-thumb-row img{width:100%;height:160px;object-fit:cover;border-radius:4px;}
-.article-thumb-row span.time-badge{position:absolute;bottom:.5rem;right:.5rem;background:rgba(0,0,0,.65);color:#fff;font-size:.75rem;padding:0 .35rem;border-radius:3px;}
-
-/* Grid cards (Weight Management) */
-.article-grid{display:grid;gap:2rem;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));}
-.article-grid .card{display:flex;flex-direction:column;transition:transform .25s,box-shadow .25s;border:1px solid var(--border);border-radius:8px;overflow:hidden;}
-.article-grid .card img{height:170px;object-fit:cover;}
-.article-grid .card-content{padding:1.25rem;flex:1;display:flex;flex-direction:column;}
-.article-grid .card h3{font-size:1.2rem;margin-bottom:.5rem;}
-.article-grid .card p{color:var(--muted);flex:1;}
-.article-grid .read-more{font-size:.85rem;margin-top:1rem;text-transform:uppercase;letter-spacing:.03em;display:inline-flex;align-items:center;gap:.35rem;}
-.article-grid .card:hover{transform:translateY(-6px);box-shadow:var(--card-shadow);background:var(--hover-bg);color:var(--hover-text);}
+  .hero-inner p{
+    font-size: 1.2rem;
+    max-width:640px;
+    margin:0 auto
+  }
+  
+  /* ---------- LISTS ---------- */
+  .article-list{
+    list-style:none;margin:0;padding:0;
+    display:grid;gap:2.2rem;
+    border-top:1px solid var(--border);padding-top:2rem;
+  }
+  .article-list li{display:flex;gap:1.25rem;cursor:pointer;}
+  .article-list img{flex:0 0 11.5rem;height:9.5rem;border-radius:4px;object-fit:cover;}
+  .article-list h3{font-size:1.15rem;margin:0 0 .35rem;font-weight:700;}
+  .article-list p{color:var(--muted);margin:0;max-width:48ch;}
+  .article-list li:hover{background:var(--hover-bg);color:var(--hover-text);}
+  
+  /* 2-col grid on ≥900 px */
+  @media(min-width:900px){
+    .article-list.two-col{grid-template-columns:1fr 1fr;}
+  }
+  
+  /*  LATEST hero list (1 big + 3 small)  */
+  .article-list.latest{grid-template-columns:1.6fr 1fr;}
+  .article-list.latest li:first-child{
+    grid-row:span 2;flex-direction:column;
+  }
+  .article-list.latest li:first-child img{width:100%;height:17rem;}
+  .article-list.latest li:first-child h3{font-size:clamp(1.3rem,1.9vw,1.75rem);}
+  
+  /* ---------- EXPLORE-BY cards ---------- */
+  .explore-by{padding-block:2.5rem 0;border-top:1px solid var(--border);}
+  .explore-row{display:flex;gap:1.5rem;overflow-x:auto;padding-block:1rem;}
+  .explore-row a{display:block;text-align:center;text-decoration:none;color:inherit;}
+  .explore-row img{width:180px;height:140px;object-fit:cover;border-radius:6px;}
+  .explore-row span{display:block;margin-top:.4rem;font-weight:700;}
