@@ -1,198 +1,355 @@
 (() => {
-    /* -------- THEME TOGGLE & BURGER (unchanged) -------- */
-    const root  = document.documentElement;
-    const toggle= document.getElementById('modeToggle');
-    if (localStorage.getItem('theme')==='dark') root.classList.add('dark');
-    toggle?.addEventListener('click',()=>{root.classList.toggle('dark');
-      localStorage.setItem('theme',root.classList.contains('dark')?'dark':'light');});
-    document.querySelector('.hamburger')?.addEventListener('click',e=>e.currentTarget.classList.toggle('open'));
-  })();
-  
-  /* ---------- HELPERS (exactly the same as sleep / fitness) ---------- */
-  function el(tag, cls){const e=document.createElement(tag);if(cls)e.className=cls;return e;}
-  function buildList(arr, targetSel){
-    const ul=document.querySelector(targetSel); if(!ul) return;
-    arr.forEach(a=>{
-      const li=el('li');
-      li.innerHTML=`<img src="${a.img}" alt=""><div><h3>${a.h}</h3><p>${a.p||''}</p></div>`;
-      li.onclick=()=>window.open(a.link,'_blank');
-      ul.appendChild(li);
-    });
+  /* ------------------------------------------------------------ */
+  /*  THEME TOGGLE                                                */
+  /* ------------------------------------------------------------ */
+  const root = document.documentElement;
+  const modeToggle = document.getElementById("modeToggle");
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") root.classList.add("dark");
+  modeToggle?.addEventListener("click", () => {
+    root.classList.toggle("dark");
+    localStorage.setItem("theme", root.classList.contains("dark") ? "dark" : "light");
+  });
+
+  /* ------------------------------------------------------------ */
+  /*  HAMBURGER ANIMATION                                         */
+  /* ------------------------------------------------------------ */
+  const burger = document.querySelector(".hamburger");
+  burger?.addEventListener("click", () => burger.classList.toggle("open"));
+
+  /* ------------------------------------------------------------ */
+  /*  SIMPLE ROUTER                                               */
+  /* ------------------------------------------------------------ */
+  const contentEl = document.getElementById("content");
+  const links = document.querySelectorAll(".nav-link, .logo, .footer-nav a");
+
+  function setActive(page){
+    links.forEach(l=>l.classList.toggle("active", l.dataset.page===page));
   }
-  
-  /* ---------- DATA : pulled 1-to-1 from Healthline ---------- */
-  const sections={
-    treatmentForAnxiety:[
+
+  function loadPage(page, push=true){
+    if(page==="home"){
+      contentEl.innerHTML = HOME_TEMPLATE;
+    }else{
+      fetch(`${page}.html`).then(r=>r.ok?r.text():"<p>Page not found.</p>").then(html=>contentEl.innerHTML=html);
+    }
+    setActive(page);
+    if(push) history.pushState({page}, "", page==="home"?"index.html":`${page}.html`);
+  }
+
+  links.forEach(a=>a.addEventListener("click",e=>{e.preventDefault();loadPage(a.dataset.page);}));
+  window.addEventListener("popstate", e => loadPage(e.state?.page || "home", false));
+})();
+
+/* ----------------------------------------------------------------
+   1. DATA SOURCE – one master object, keys mirror section IDs
+   ---------------------------------------------------------------- */
+   const sections = {
+    /* ----------  Liječenje anksioznosti  ---------- */
+    treatmentForAnxiety: [
       {
-        img:'https://media.post.rvohealth.io/wp-content/uploads/2022/12/psychotherapy-session-732x549-thumbnail-732x549.jpg',
-        h:'What Type of Psychotherapy Is Best for Anxiety?',
-        p:'Psychotherapy can help you manage your anxiety symptoms. Find the best type of therapy for you.',
-        link:'https://www.healthline.com/health/anxiety/psychotherapy-for-anxiety'
-      },{
-        img:'https://media.post.rvohealth.io/wp-content/uploads/2020/02/732x549_SEO_Anxiety_Thumb-732x549.jpg',
-        h:'Effective Coping Techniques for Anxiety',
-        p:'Identifying your triggers can take time and self-reflection. In the meantime, here are 11 strategies you can try…',
-        link:'https://www.healthline.com/health/mental-health/how-to-cope-with-anxiety'
-      },{
-        img:'https://media.post.rvohealth.io/wp-content/uploads/2024/12/close-up-multiple-pills-supplements-on-white-surface-732x549-thumbnail-.jpg',
-        h:'Alternative Treatments for Anxiety',
-        p:'Here are some alternative treatments to help with anxiety.',
-        link:'https://www.healthline.com/health/anxiety-alternative-treatments'
-      },{
-        img:'https://media.post.rvohealth.io/wp-content/uploads/2025/04/females-playing-board-game-732-549-feature-thumb.jpg',
-        h:'5 Common Misconceptions About Antidepressants',
-        p:'There are many misconceptions about antidepressants. If you’re considering them, it’s worth taking a little time to…',
-        link:'https://www.healthline.com/health/depression/common-misconceptions-about-antidepressants'
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2022/12/psychotherapy-session-732x549-thumbnail-732x549.jpg",
+        h   : "Koja je vrsta psihoterapije najbolja za anksioznost?",
+        p   : "Psihoterapija vam može pomoći u upravljanju simptomima anksioznosti. Pronađite najbolju vrstu terapije za vas.",
+        link: "https://www.healthline.com/health/anxiety/psychotherapy-for-anxiety"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/02/732x549_SEO_Anxiety_Thumb-732x549.jpg",
+        h   : "Učinkovite tehnike suočavanja s anksioznošću",
+        p   : "Identificiranje vaših okidača može potrajati i zahtijevati samorefleksiju. U međuvremenu, evo 11 strategija koje možete isprobati…",
+        link: "https://www.healthline.com/health/mental-health/how-to-cope-with-anxiety"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2024/12/close-up-multiple-pills-supplements-on-white-surface-732x549-thumbnail-.jpg",
+        h   : "Alternativni tretmani za anksioznost",
+        p   : "Evo nekoliko alternativnih tretmana koji pomažu kod anksioznosti.",
+        link: "https://www.healthline.com/health/anxiety-alternative-treatments"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2025/04/females-playing-board-game-732-549-feature-thumb.jpg",
+        h   : "5 uobičajenih zabluda o antidepresivima",
+        p   : "Postoje mnoge zablude o antidepresivima. Ako ih razmatrate, vrijedi odvojiti malo vremena da…",
+        link: "https://www.healthline.com/health/depression/common-misconceptions-about-antidepressants"
       }
     ],
   
-    treatmentForDepression:[
+    /* ----------  Liječenje depresije  ---------- */
+    treatmentForDepression: [
       {
-        img:'https://media.post.rvohealth.io/wp-content/uploads/2023/06/variety-of-different-multicolored-chairs-against-wall-732x549-thumbnail-732x549.jpg',
-        h:'What Are the Types of Therapy for Depression?',
-        p:'Depression can be treated through a variety of therapeutic techniques.',
-        link:'https://www.healthline.com/health/depression/types-of-depression-therapy'
-      },{
-        img:'https://media.post.rvohealth.io/wp-content/uploads/2020/09/depression-help-for-depression_thumb-1-732x549.jpg',
-        h:'How Can I Get Help for Depression?',
-        p:'Depression can be debilitating for those who experience it. But there are many effective…',
-        link:'https://www.healthline.com/health/depression/help-for-depression'
-      },{
-        img:'https://media.post.rvohealth.io/wp-content/uploads/2021/11/taking-medication-with-water-1296x728-header-732x549.jpg',
-        h:'Selective Serotonin Reuptake Inhibitors (SSRIs): What to Know',
-        p:'SSRIs are a type of antidepressant. Learn about these commonly prescribed drugs, including…',
-        link:'https://www.healthline.com/health/depression/selective-serotonin-reuptake-inhibitors-ssris'
-      },{
-        img:'https://media.post.rvohealth.io/wp-content/uploads/2025/04/heavy-overweight-woman-sitting-on-rocks-by-water-ocean-beach-contemplating-732x549-thumbnail.jpg',
-        h:'Caring for Yourself Through Depression and Weight Gain',
-        p:'Weight gain and depression are linked through several factors. Here’s what drives the…',
-        link:'https://www.healthline.com/health/depression/understanding-depression-and-weight-gain'
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2023/06/variety-of-different-multicolored-chairs-against-wall-732x549-thumbnail-732x549.jpg",
+        h   : "Koje su vrste terapije za depresiju?",
+        p   : "Depresija se može liječiti raznim terapijskim tehnikama.",
+        link: "https://www.healthline.com/health/depression/types-of-depression-therapy"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/09/depression-help-for-depression_thumb-1-732x549.jpg",
+        h   : "Kako mogu dobiti pomoć za depresiju?",
+        p   : "Depresija može biti iscrpljujuća za one koji je doživljavaju. Ali postoje mnogi učinkoviti…",
+        link: "https://www.healthline.com/health/depression/help-for-depression"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2021/11/taking-medication-with-water-1296x728-header-732x549.jpg",
+        h   : "Selektivni inhibitori ponovne pohrane serotonina (SSRI): Što trebate znati",
+        p   : "SSRI su vrsta antidepresiva. Saznajte više o ovim često propisivanim lijekovima, uključujući…",
+        link: "https://www.healthline.com/health/depression/selective-serotonin-reuptake-inhibitors-ssris"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2025/04/heavy-overweight-woman-sitting-on-rocks-by-water-ocean-beach-contemplating-732x549-thumbnail.jpg",
+        h   : "Briga o sebi tijekom depresije i debljanja",
+        p   : "Debljanje i depresija povezani su s nekoliko čimbenika. Evo što potiče…",
+        link: "https://www.healthline.com/health/depression/understanding-depression-and-weight-gain"
       }
     ],
   
-    /* --- Better Sleep --- */
-    betterSleep:[
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2020/02/sleep-sleeping-bed-732x549-thumbnail-732x549.jpg',
-       h:'Top 15 Proven Tips to Sleep Better at Night',
-       p:'This article lists 15 evidence-based tips to sleep better at night. Getting good sleep is important for optimal health.',
-       link:'https://www.healthline.com/nutrition/17-tips-to-sleep-better'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2025/01/evening-bed-gummies-moon-reflection-hemp-branch-732x549-thumbnail.jpg',
-       h:'What Does Melatonin Do, and How Does It Work?',
-       p:'Learn about the effectiveness of melatonin for sleep, supplement safety, pregnancy use, and more.',
-       link:'https://www.healthline.com/nutrition/melatonin-and-sleep'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2020/08/woman-tired-sleeping-sleep-bed-732x549-thumbnail-1-732x549.jpg',
-       h:'12 Healthy Sleep Hygiene Tips',
-       p:'Sleep hygiene is about having healthy sleep habits. See which behaviors during the day and bedtime affect…',
-       link:'https://www.healthline.com/health/sleep-hygiene'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2023/07/close-up-digital-alarm-clock-midnight-numbers-display-732x549-thumbnail.jpg',
-       h:'Why Am I So Tired, but Can’t Sleep?',
-       p:'Still can’t sleep when you’re dead tired? Tips to get a restful night’s sleep, no matter what.',
-       link:'https://www.healthline.com/health/healthy-sleep/tired-but-cant-sleep'}
+    /* ----------  Bolji san  ---------- */
+    betterSleep: [
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/02/sleep-sleeping-bed-732x549-thumbnail-732x549.jpg",
+        h   : "15 najboljih dokazanih savjeta za bolji san noću",
+        p   : "Ovaj članak navodi 15 savjeta temeljenih na dokazima za bolji san noću. Dobar san važan je za optimalno zdravlje.",
+        link: "https://www.healthline.com/nutrition/17-tips-to-sleep-better"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2025/01/evening-bed-gummies-moon-reflection-hemp-branch-732x549-thumbnail.jpg",
+        h   : "Što melatonin radi i kako djeluje?",
+        p   : "Saznajte više o učinkovitosti melatonina za san, sigurnosti dodataka prehrani, korištenju u trudnoći i još mnogo toga.",
+        link: "https://www.healthline.com/nutrition/melatonin-and-sleep"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/08/woman-tired-sleeping-sleep-bed-732x549-thumbnail-1-732x549.jpg",
+        h   : "12 savjeta za zdravu higijenu spavanja",
+        p   : "Higijena spavanja odnosi se na zdrave navike spavanja. Pogledajte koja ponašanja tijekom dana i prije spavanja utječu na…",
+        link: "https://www.healthline.com/health/sleep-hygiene"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2023/07/close-up-digital-alarm-clock-midnight-numbers-display-732x549-thumbnail.jpg",
+        h   : "Zašto sam toliko umoran, ali ne mogu spavati?",
+        p   : "Još uvijek ne možete zaspati kad ste mrtvi umorni? Savjeti za miran noćni san, bez obzira na sve.",
+        link: "https://www.healthline.com/health/healthy-sleep/tired-but-cant-sleep"
+      }
     ],
   
-    /* --- Nutrition & Supplements --- */
-    nutritionSupplements:[
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2025/01/woman-mid-section-cooking-veggies-in-a-pan-732x549-thumbnail.jpg',
-       h:'Diet and Mental Health: Can What You Eat Affect How You Feel?',
-       p:'Diet is a critical component of social, emotional, and mental health. Here’s how.',
-       link:'https://www.healthline.com/nutrition/diet-and-mental-health-can-what-you-eat-affect-how-you-feel'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2020/09/fried-egg-732x549-thumbnail-732x549.jpg',
-       h:'6 Foods That Could Boost Your Serotonin Levels',
-       p:'Serotonin is a chemical messenger believed to elevate your mood. These foods may help…',
-       link:'https://www.healthline.com/health/healthy-sleep/foods-that-could-boost-your-serotonin'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2025/02/Best-Vitamins-and-Supplements-for-stress-thumbnail_732x549.jpg',
-       h:'The 8 Best Vitamins and Supplements for Stress, According to…',
-       p:'Stress may be caused by many factors. Here are research-backed supplements that can help.',
-       link:'https://www.healthline.com/nutrition/vitamins-for-stress'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2024/08/close-up-hands-veggies-tomatoes-lettuce-732x549-thumbnail.jpg',
-       h:'Can Food Act as Medicine? All You Need to Know',
-       p:'Many people claim that food is medicine. Here’s the science behind using food therapeutically.',
-       link:'https://www.healthline.com/nutrition/food-as-medicine'}
+    /* ----------  Prehrana i dodaci prehrani  ---------- */
+    nutritionSupplements: [
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2025/01/woman-mid-section-cooking-veggies-in-a-pan-732x549-thumbnail.jpg",
+        h   : "Prehrana i mentalno zdravlje: Može li ono što jedete utjecati na to kako se osjećate?",
+        p   : "Prehrana je ključna komponenta socijalnog, emocionalnog i mentalnog zdravlja. Evo kako.",
+        link: "https://www.healthline.com/nutrition/diet-and-mental-health-can-what-you-eat-affect-how-you-feel"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/09/fried-egg-732x549-thumbnail-732x549.jpg",
+        h   : "6 namirnica koje bi mogle povisiti razinu serotonina",
+        p   : "Serotonin je kemijski glasnik za koji se vjeruje da podiže raspoloženje. Ove namirnice mogu pomoći…",
+        link: "https://www.healthline.com/health/healthy-sleep/foods-that-could-boost-your-serotonin"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2025/02/Best-Vitamins-and-Supplements-for-stress-thumbnail_732x549.jpg",
+        h   : "8 najboljih vitamina i dodataka prehrani za stres, prema stručnjacima",
+        p   : "Stres može biti uzrokovan mnogim čimbenicima. Evo dodataka prehrani potkrijepljenih istraživanjima koji mogu pomoći.",
+        link: "https://www.healthline.com/nutrition/vitamins-for-stress"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2024/08/close-up-hands-veggies-tomatoes-lettuce-732x549-thumbnail.jpg",
+        h   : "Može li hrana djelovati kao lijek? Sve što trebate znati",
+        p   : "Mnogi ljudi tvrde da je hrana lijek. Evo znanosti koja stoji iza terapijske upotrebe hrane.",
+        link: "https://www.healthline.com/nutrition/food-as-medicine"
+      }
     ],
   
-    /* --- Building Relationships --- */
-    buildingRelationships:[
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2019/11/Lesbian_Couple_Outside_732x549-thumbnail.jpg',
-       h:'How to Handle Relationship Anxiety',
-       p:'Constantly questioning your relationship? Learn how to recognize and overcome relationship anxiety.',
-       link:'https://www.healthline.com/health/relationship-anxiety'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2022/09/asian-woman-preparing-meal-with-husband-in-background-732x549-thumbnail-732x549.jpg',
-       h:'Your Guide to Codependent Relationships and Recovery',
-       p:'Possible signs of codependent relationships and ways you and your partner can work to have a healthier one.',
-       link:'https://www.healthline.com/health/relationships/codependent-relationship'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2021/12/relationship-concept-732x549-thumbnail-732x549.jpg',
-       h:'Is Your Relationship Toxic? Signs and How to Cope',
-       p:'What a toxic relationship is, how you can heal it or leave, and the difference between abusive and toxic relationships.',
-       link:'https://www.healthline.com/health/toxic-relationship'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2019/10/Couple_Outside_732x549-thumbnail.jpg',
-       h:'Tips for Building a Stronger Relationship',
-       p:'What a healthy relationship looks like and how to cultivate one.',
-       link:'https://www.healthline.com/health/healthy-relationship'}
+    /* ----------  Izgradnja odnosa  ---------- */
+    buildingRelationships: [
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2019/11/Lesbian_Couple_Outside_732x549-thumbnail.jpg",
+        h   : "Kako se nositi s anksioznošću u vezi",
+        p   : "Stalno preispitujete svoju vezu? Naučite kako prepoznati i prevladati anksioznost u vezi.",
+        link: "https://www.healthline.com/health/relationship-anxiety"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2022/09/asian-woman-preparing-meal-with-husband-in-background-732x549-thumbnail-732x549.jpg",
+        h   : "Vaš vodič za suovisne veze i oporavak",
+        p   : "Mogući znakovi suovisnih veza i načini na koje vi i vaš partner možete raditi na zdravijoj vezi.",
+        link: "https://www.healthline.com/health/relationships/codependent-relationship"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2021/12/relationship-concept-732x549-thumbnail-732x549.jpg",
+        h   : "Je li vaša veza toksična? Znakovi i kako se nositi s tim",
+        p   : "Što je toksična veza, kako je možete izliječiti ili otići te razlika između nasilnih i toksičnih veza.",
+        link: "https://www.healthline.com/health/toxic-relationship"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2019/10/Couple_Outside_732x549-thumbnail.jpg",
+        h   : "Savjeti za izgradnju jače veze",
+        p   : "Kako izgleda zdrava veza i kako je njegovati.",
+        link: "https://www.healthline.com/health/healthy-relationship"
+      }
     ],
   
-    /* --- Emotional Well-Being --- */
-    emotionalWellBeing:[
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2022/01/african_american_woman_journaling_at_home-732x549-thumbnail-732x549.jpg',
-       h:'6 Journaling Benefits and How to Start Right Now',
-       p:'Journaling offers benefits from stress reduction to personal growth. Here’s how to begin.',
-       link:'https://www.healthline.com/health/benefits-of-journaling'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2021/04/eating-salad-732x549-thumbnail.jpg',
-       h:'32 Mindfulness Activities to Find Calm at Any Age',
-       p:'Only have 5 minutes? Try these mindfulness activities when you’re cooking, walking, or…',
-       link:'https://www.healthline.com/health/mind-body/mindfulness-activities'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2019/02/Female_Sitting_Breathing_732x549-thumbnail.jpg',
-       h:'10 Breathing Exercises to Try When You’re Feeling Stressed',
-       p:'Proven breathing exercises for lowering stress and improving calm.',
-       link:'https://www.healthline.com/health/breathing-exercise'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2024/09/colorful-portrait-woman-close-up-happy-flowers-732x549-thumbnail-1.jpg',
-       h:'How to Be Happy: 12 Habits to Add to Your Routine',
-       p:'Happiness may feel impossible at times, but these practical tips can get you closer…',
-       link:'https://www.healthline.com/health/how-to-be-happy'}
+    /* ----------  Emocionalno blagostanje  ---------- */
+    emotionalWellBeing: [
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2022/01/african_american_woman_journaling_at_home-732x549-thumbnail-732x549.jpg",
+        h   : "6 prednosti vođenja dnevnika i kako odmah započeti",
+        p   : "Vođenje dnevnika nudi prednosti od smanjenja stresa do osobnog rasta. Evo kako započeti.",
+        link: "https://www.healthline.com/health/benefits-of-journaling"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2021/04/eating-salad-732x549-thumbnail.jpg",
+        h   : "32 aktivnosti svjesnosti za pronalaženje mira u bilo kojoj dobi",
+        p   : "Imate samo 5 minuta? Isprobajte ove aktivnosti svjesnosti dok kuhate, hodate ili…",
+        link: "https://www.healthline.com/health/mind-body/mindfulness-activities"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2019/02/Female_Sitting_Breathing_732x549-thumbnail.jpg",
+        h   : "10 vježbi disanja koje možete isprobati kada ste pod stresom",
+        p   : "Dokazane vježbe disanja za smanjenje stresa i poboljšanje mira.",
+        link: "https://www.healthline.com/health/breathing-exercise"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2024/09/colorful-portrait-woman-close-up-happy-flowers-732x549-thumbnail-1.jpg",
+        h   : "Kako biti sretan: 12 navika koje možete dodati svojoj rutini",
+        p   : "Sreća se ponekad može činiti nemogućom, ali ovi praktični savjeti mogu vas približiti…",
+        link: "https://www.healthline.com/health/how-to-be-happy"
+      }
     ],
   
-    /* --- Therapy --- */
-    therapy:[
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2020/08/Female_Therapy_732x549-thumbnail-732x549.jpg',
-       h:'How to Find a Therapist: 8 Tips from Experts on Searching for the Right Fit',
-       p:'Tips for locating the right therapist to treat trauma, loss, relationship issues, or mental-health conditions.',
-       link:'https://www.healthline.com/health/how-to-find-a-therapist'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2021/03/behavioral-talk-therapy-732x549-thumbnail-1.jpg',
-       h:'Not Sure What to Talk About in Therapy? 12 Things to Consider',
-       p:'A dozen helpful prompts when you feel stuck in session.',
-       link:'https://www.healthline.com/health/what-to-talk-about-in-therapy'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2025/05/4275716-affordable-therapy-from-home-.jpg',
-       h:'Affordable Therapy from Home: The Best Online Options for 2025',
-       p:'A curated list of affordable online mental-health services.',
-       link:'https://www.healthline.com/health/therapy-for-every-budget'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2020/12/telemedicine-psychotherapy-session-from-bed-732x549-thumbnail.jpg',
-       h:'What’s the Difference Between a Psychologist and Therapist? How to Choose',
-       p:'Key differences so you know who to choose for support.',
-       link:'https://www.healthline.com/health/psychologist-vs-therapist'}
+    /* ----------  Terapija  ---------- */
+    therapy: [
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/08/Female_Therapy_732x549-thumbnail-732x549.jpg",
+        h   : "Kako pronaći terapeuta: 8 savjeta stručnjaka o potrazi za pravim terapeutom",
+        p   : "Savjeti za pronalaženje pravog terapeuta za liječenje traume, gubitka, problema u vezi ili mentalnih stanja.",
+        link: "https://www.healthline.com/health/how-to-find-a-therapist"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2021/03/behavioral-talk-therapy-732x549-thumbnail-1.jpg",
+        h   : "Niste sigurni o čemu razgovarati na terapiji? 12 stvari koje treba uzeti u obzir",
+        p   : "Desetak korisnih prijedloga kada se osjećate zaglavljeno u sesiji.",
+        link: "https://www.healthline.com/health/what-to-talk-about-in-therapy"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2025/05/4275716-affordable-therapy-from-home-.jpg",
+        h   : "Pristupačna terapija od kuće: Najbolje online opcije za 2025.",
+        p   : "Odabrani popis pristupačnih online usluga mentalnog zdravlja.",
+        link: "https://www.healthline.com/health/therapy-for-every-budget"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/12/telemedicine-psychotherapy-session-from-bed-732x549-thumbnail.jpg",
+        h   : "Koja je razlika između psihologa i terapeuta? Kako odabrati",
+        p   : "Ključne razlike kako biste znali koga odabrati za podršku.",
+        link: "https://www.healthline.com/health/psychologist-vs-therapist"
+      }
     ],
   
-    /* --- Crisis Support --- */
-    crisisSupport:[
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2018/09/turquoise-retro-rotary-phone-on-purple-table-732x549-thumbnail.jpg',
-       h:'Suicide Prevention Resource Guide',
-       p:'Death by suicide is the 10th-leading cause of death in the United States. If you or…',
-       link:'https://www.healthline.com/health/mental-health/suicide-resource-guide'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2023/01/two-friends-men-male-talking-by-water-outdoors-732x549-thumbnail-732x549.jpg',
-       h:'How to Talk About Suicide with the People You Love',
-       p:'Language matters—here’s how to navigate hard conversations about suicide.',
-       link:'https://www.healthline.com/health/mental-health/how-to-talk-about-suicide'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2020/09/young-woman-african-american-cell-phone-city-732x549-thumbnail-732x549.jpg',
-       h:'10 Ways to Reach Out in a Mental Health Crisis',
-       p:'A definitive guide to speaking up and seeking help during a mental-health crisis.',
-       link:'https://www.healthline.com/health/mental-health/how-to-reach-out'},
-      {img:'https://media.post.rvohealth.io/wp-content/uploads/2020/06/Young-female-friends-encouraging-depressed-man-1296x728-header-732x549.jpg',
-       h:'How to Support Suicide Attempt Survivors',
-       p:'We often forget some people are on the other side of a suicide attempt—here’s how to help.',
-       link:'https://www.healthline.com/health/mental-health/7-ways-we-can-do-better-by-suicide-attempt-survivors'}
+    /* ----------  Podrška u krizi  ---------- */
+    crisisSupport: [
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2018/09/turquoise-retro-rotary-phone-on-purple-table-732x549-thumbnail.jpg",
+        h   : "Vodič za resurse za sprječavanje samoubojstva",
+        p   : "Smrt samoubojstvom je 10. vodeći uzrok smrti u SAD-u. Ako vi ili…",
+        link: "https://www.healthline.com/health/mental-health/suicide-resource-guide"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2023/01/two-friends-men-male-talking-by-water-outdoors-732x549-thumbnail-732x549.jpg",
+        h   : "Kako razgovarati o samoubojstvu s ljudima koje volite",
+        p   : "Jezik je važan — evo kako se snalaziti u teškim razgovorima o samoubojstvu.",
+        link: "https://www.healthline.com/health/mental-health/how-to-talk-about-suicide"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/09/young-woman-african-american-cell-phone-city-732x549-thumbnail-732x549.jpg",
+        h   : "10 načina za pružanje pomoći u krizi mentalnog zdravlja",
+        p   : "Definitivan vodič za progovaranje i traženje pomoći tijekom krize mentalnog zdravlja.",
+        link: "https://www.healthline.com/health/mental-health/how-to-reach-out"
+      },
+      {
+        img : "https://media.post.rvohealth.io/wp-content/uploads/2020/06/Young-female-friends-encouraging-depressed-man-1296x728-header-732x549.jpg",
+        h   : "Kako podržati preživjele pokušaja samoubojstva",
+        p   : "Često zaboravljamo da su neki ljudi na drugoj strani pokušaja samoubojstva — evo kako pomoći.",
+        link: "https://www.healthline.com/health/mental-health/7-ways-we-can-do-better-by-suicide-attempt-survivors"
+      }
     ]
   };
-  
-  /* ---------- RENDER – 1-liner, same pattern you use elsewhere ---------- */
-  Object.entries(sections).forEach(([key, arr])=>{
-    const sel='#'+key.replace(/([A-Z])/g,'-$1').toLowerCase()+'-list';
-    buildList(arr, sel);
+
+/* ----------------------------------------------------------------
+   2. RENDER HELPERS – creates <li> for list or thumb row
+   ---------------------------------------------------------------- */
+function el(tag, cls) {
+  const e = document.createElement(tag);
+  if (cls) e.className = cls;
+  return e;
+}
+
+function buildList(arr, targetSel) {
+  const ul = document.querySelector(targetSel);
+  if (!ul) return;
+  arr.forEach(a => {
+    const li = el("li");
+    const img = el("img");
+    img.src = a.img;
+    img.alt = "";
+    const wrap = el("div");
+    const h3 = el("h3");
+    h3.textContent = a.h;
+    wrap.appendChild(h3);
+    if (a.p) {
+      const p = el("p");
+      p.textContent = a.p;
+      wrap.appendChild(p);
+    }
+    li.appendChild(img);
+    li.appendChild(wrap);
+    ul.appendChild(li);
+    li.addEventListener("click", () => window.open(a.link || "#", "_blank"));
   });
+}
+
+function buildThumbRow(arr, targetSel) {
+  const ul = document.querySelector(targetSel);
+  if (!ul) return;
+  arr.forEach(a => {
+    const li = el("li");
+    const img = el("img");
+    img.src = a.img;
+    img.alt = "";
+    li.appendChild(img);
+    if (a.time) {
+      const badge = el("span", "time-badge");
+      badge.textContent = a.time;
+      li.appendChild(badge);
+    }
+    ul.appendChild(li);
+    li.addEventListener("click", () => window.open(a.link || "#", "_blank"));
+  });
+}
+
+/* ----------------------------------------------------------------
+   3. RENDER – call helpers for each section
+   ---------------------------------------------------------------- */
+Object.entries(sections).forEach(([key, arr]) => {
+  const sel = "#" + key.replace(/([A-Z])/g, "-$1").toLowerCase() + "-list";
+  buildList(arr, sel);
+});
+
+/* RELOAD */
+window.addEventListener("DOMContentLoaded", () => {
+  // derive page from the current URL (e.g. /mental_health.html → "mental-health")
+  const start = location.pathname.replace(/^\/|\.html$/g,"") || "home";
+  loadPage(start, false);           // don't pushState again
+});
+
+function loadPage(page, push = true) {
+  const url = page === "home" ? "home.html" : `${page}.html`;
+
+  fetch(url)
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.text();
+    })
+    .then(html => contentEl.innerHTML = html)
+    .catch(err => {
+      contentEl.innerHTML = `<p class="error">Page failed to load (${err.message})</p>`;
+    });
+
+  setActive(page);
+  if (push) history.pushState({ page }, "", page === "home" ? "index.html" : `${page}.html`);
+}

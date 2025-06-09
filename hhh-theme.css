@@ -11,7 +11,6 @@
   --hover-text:#fff;
   --radius:4px;
   --shadow:0 8px 20px rgba(0,0,0,.06);
-  /* Universal icon sizing token (footer + navbar) */
   --icon-size:26px;
 }
 .dark {
@@ -150,3 +149,11 @@ object-fit:cover;
 }
 
 .hhh-footer .social-icons i{font-size:var(--icon-size);line-height:1;}
+
+.hhh-footer, #hhh-footer {
+  background: var(--bg);
+  border-top: 1px solid var(--border);
+  padding: 4rem 1.5rem;
+  font-size: .9rem;
+  margin-top: 2rem;
+}

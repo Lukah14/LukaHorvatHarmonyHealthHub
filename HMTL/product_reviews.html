@@ -34,68 +34,65 @@
     </div>
   </header>
 
-  <main id="content">
-
-    <!-- HERO -------------------------------------------------------->
-    <!-- identical markup + artwork path that Healthline uses -->
-    <div data-hero-image="hero-image" class="hero reviews-hero">
-      <div class="hero-inner">
-        <h1>Product Reviews</h1>
-        <p>Simplify your search for health products with our evidence-based reviews and brand comparisons.</p>
-      </div>
-      <picture>
-        <source
-          srcset="https://media.post.rvohealth.io/wp-content/uploads/2022/06/1000x400_Reviews_Hub_Hero_b.jpg"
-          media="(max-width: 768px)">
-        <img
-          src="https://media.post.rvohealth.io/wp-content/uploads/2022/06/3600x600_Reviews_Hub_Hero_b-scaled.jpg"
-          alt="">
-      </picture>
+  <!-- =============================== HERO =============================== -->
+  <section class="hero-reviews">
+    <div class="hero-inner">
+      <h1>Product Reviews</h1>
+      <p class="tagline">Recenzije temeljene na dokazima i usporedbe robnih marki za bolje zdravstvene izbore</p>
     </div>
-  
-    <!-- ==========   L I S T I N G   S E C T I O N S   ========== -->
-  
-    <!-- 01 · LATEST (big hero list) -->
+  </section>
+
+  <!-- =============================== DYNAMIC CONTENT =============================== -->
+  <main id="content">
     <section>
       <h2>LATEST</h2>
       <ul id="latest-list" class="article-list latest"></ul>
     </section>
   
-    <!-- EXPLORE-BY — horizontal scroll cards -->
-    <section class="explore-by">
-      <h2>EXPLORE&nbsp;BY</h2>
-      <div id="explore-row" class="explore-row"></div>
-    </section>
-  
-    <!-- 02 · MOST POPULAR  -->
     <section>
       <h2>MOST POPULAR</h2>
       <ul id="most-popular-list" class="article-list two-col"></ul>
     </section>
   
-    <!-- 03 · EDITORS’ PICKS -->
     <section>
       <h2>EDITORS' PICKS</h2>
       <ul id="editors-picks-list" class="article-list two-col"></ul>
     </section>
   
-    <!-- From here down every widget is copy-pasted from the screenshots.
-         Each gets its own <section> with the pattern  <id>-list            -->
-  
-    <section><h2>VITAMINS AND SUPPLEMENTS</h2><ul id="vitamins-supplements-list" class="article-list two-col"></ul></section>
-    <section><h2>SLEEP</h2><ul id="sleep-list" class="article-list two-col"></ul></section>
-    <section><h2>CBD</h2><ul id="cbd-list" class="article-list two-col"></ul></section>
-    <section><h2>MENTAL HEALTH</h2><ul id="mental-health-list" class="article-list two-col"></ul></section>
-    <section><h2>NUTRITION</h2><ul id="nutrition-list" class="article-list two-col"></ul></section>
-    <section><h2>AT-HOME TESTING</h2><ul id="at-home-testing-list" class="article-list two-col"></ul></section>
-    <section><h2>WOMEN'S HEALTH</h2><ul id="womens-health-list" class="article-list two-col"></ul></section>
-    <section><h2>MEN'S HEALTH</h2><ul id="mens-health-list" class="article-list two-col"></ul></section>
-    <section><h2>FITNESS</h2><ul id="fitness-list" class="article-list two-col"></ul></section>
-    <section><h2>PARENTHOOD</h2><ul id="parenthood-list" class="article-list two-col"></ul></section>
-    <section><h2>VISION</h2><ul id="vision-list" class="article-list two-col"></ul></section>
-    <section><h2>HEARING</h2><ul id="hearing-list" class="article-list two-col"></ul></section>
-    <section><h2>SKIN CARE</h2><ul id="skin-care-list" class="article-list two-col"></ul></section>
-  
+    <section class="section" id="vitamins-supplements">
+      <div class="section-head"><h2 class="section-title">Vitamins & Supplements</h2></div>
+      <ul id="vitamins-supplements-list" class="article-list"></ul>
+    </section>
+        
+    <section class="section" id="sleep">
+      <div class="section-head"><h2 class="section-title">Sleep</h2></div>
+      <ul id="sleep-list" class="article-list"></ul>
+    </section>
+        
+    <section class="section" id="mental-health">
+      <div class="section-head"><h2 class="section-title">Mental Health</h2></div>
+      <ul id="mental-health-list" class="article-list"></ul>
+    </section>
+        
+    <section class="section" id="fitness">
+      <div class="section-head"><h2 class="section-title">Fitness</h2></div>
+      <ul id="fitness-list" class="article-list"></ul>
+    </section>
+        
+    <section class="section" id="nutrition">
+      <div class="section-head"><h2 class="section-title">Nutrition</h2></div>
+      <ul id="nutrition-list" class="article-list"></ul>
+    </section>
+        
+    <section class="section" id="womens-health">
+      <div class="section-head"><h2 class="section-title">Women's Health</h2></div>
+      <ul id="womens-health-list" class="article-list"></ul>
+    </section>
+        
+    <section class="section" id="mens-health">
+      <div class="section-head"><h2 class="section-title">Men's Health</h2></div>
+      <ul id="mens-health-list" class="article-list"></ul>
+    </section>
   </main>
 
   <footer id="hhh-footer"></footer>

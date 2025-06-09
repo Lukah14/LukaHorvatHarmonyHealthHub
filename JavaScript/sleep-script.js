@@ -54,26 +54,26 @@
     betterSleep: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/02/sleep-sleeping-bed-732x549-thumbnail-732x549.jpg',
-        h: 'Top 15 Proven Tips to Sleep Better at Night',
-        p: 'Evidence‑based advice for deeper, more restorative rest.',
+        h   : '15 provjerenih savjeta za bolji san noću',
+        p   : 'Savjeti temeljeni na dokazima za dublji i okrepljujući odmor.',
         link: 'https://www.healthline.com/nutrition/17-tips-to-sleep-better'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2025/01/evening-bed-gummies-moon-reflection-hemp-branch-732x549-thumbnail.jpg',
-        h: 'What Does Melatonin Do, and How Does It Work?',
-        p: 'The science, safety profile, and smart usage of melatonin.',
+        h   : 'Što melatonin radi i kako djeluje?',
+        p   : 'Znanost, sigurnosni profil i pametna upotreba melatonina.',
         link: 'https://www.healthline.com/nutrition/melatonin-and-sleep'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/08/woman-tired-sleeping-sleep-bed-732x549-thumbnail-1-732x549.jpg',
-        h: '12 Healthy Sleep Hygiene Tips',
-        p: 'Day‑to‑night habits that set you up for quality sleep.',
+        h   : '12 savjeta za zdravu higijenu spavanja',
+        p   : 'Navike od dana do noći koje vas pripremaju za kvalitetan san.',
         link: 'https://www.healthline.com/health/sleep-hygiene'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2023/07/close-up-digital-alarm-clock-midnight-numbers-display-732x549-thumbnail.jpg',
-        h: 'Why Am I So Tired, but Can’t Sleep?',
-        p: 'Common culprits behind that wired‑and‑tired feeling — plus fixes.',
+        h   : 'Zašto sam toliko umoran, ali ne mogu spavati?',
+        p   : 'Uobičajeni krivci za taj osjećaj umora i napetosti — plus rješenja.',
         link: 'https://www.healthline.com/health/healthy-sleep/tired-but-cant-sleep'
       }
     ],
@@ -82,20 +82,20 @@
     sleepDisorders: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2024/12/close-up-multiple-pills-supplements-on-white-surface-732x549-thumbnail-.jpg',
-        h: 'Alternative Treatments for Insomnia',
-        p: 'Exploring supplements, CBT‑I, and lifestyle interventions.',
+        h: 'Alternativni tretmani za nesanicu',
+        p: 'Istraživanje dodataka prehrani, KBT-I i intervencija u načinu života.',
         link: 'https://www.healthline.com/health/insomnia/alternative-treatments'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/12/psychotherapy-session-732x549-thumbnail-732x549.jpg',
-        h: 'What Type of Psychotherapy Is Best for Sleep Anxiety?',
-        p: 'A guide to CBT, ACT, EMDR, and more.',
+        h: 'Koja je vrsta psihoterapije najbolja za anksioznost u snu?',
+        p: 'Vodič za KBT, ACT, EMDR i još mnogo toga.',
         link: 'https://www.healthline.com/health/anxiety/psychotherapy-for-anxiety'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2025/04/females-playing-board-game-732-549-feature-thumb.jpg',
-        h: '5 Common Misconceptions About Sleep Medications',
-        p: 'Separating fact from fiction to help you make safe choices.',
+        h   : '5 uobičajenih zabluda o lijekovima za spavanje',
+        p   : 'Odvajanje činjenica od fikcije kako biste donosili sigurne odluke.',
         link: 'https://www.healthline.com/health/depression/common-misconceptions-about-antidepressants'
       }
     ],
@@ -104,20 +104,20 @@
     mindAndBody: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/01/african_american_woman_journaling_at_home-732x549-thumbnail-732x549.jpg',
-        h: '6 Journaling Benefits and How to Start Tonight',
-        p: 'A low‑tech habit that translates to better shut‑eye.',
+        h   : '6 prednosti vođenja dnevnika i kako započeti večeras',
+        p   : 'Navika niske tehnologije koja se prevodi u bolje spavanje.',
         link: 'https://www.healthline.com/health/benefits-of-journaling'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2021/04/eating-salad-732x549-thumbnail.jpg',
-        h: '32 Mindfulness Activities to Wind Down Before Bed',
-        p: 'Five‑minute practices you can slot into any routine.',
+        h   : '32 aktivnosti svjesnosti za opuštanje prije spavanja',
+        p   : 'Petominutne vježbe koje možete uklopiti u bilo koju rutinu.',
         link: 'https://www.healthline.com/health/mind-body/mindfulness-activities'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/09/depression-help-for-depression_thumb-1-732x549.jpg',
-        h: 'Effective Coping Techniques for Night‑Time Anxiety',
-        p: '11 strategies to quiet racing thoughts when the lights go out.',
+        h   : 'Učinkovite tehnike suočavanja s noćnom anksioznošću',
+        p   : '11 strategija za smirivanje jurećih misli kada se svjetla ugase.',
         link: 'https://www.healthline.com/health/mental-health/how-to-cope-with-anxiety'
       }
     ]

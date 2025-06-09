@@ -21,6 +21,13 @@
     margin:0 auto
   }
 
+  /* Section styling */
+.section{padding:3rem 1.25rem;}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid var(--border);margin-bottom:2rem;}
+.section-title{font-weight:900;font-size:2rem;text-transform:uppercase;letter-spacing:-.5px;margin-bottom:.4rem;}
+.view-all{font-size:.85rem;text-transform:uppercase;color:var(--muted);flex-shrink:0;transition:color .25s;}
+.view-all:hover{color:var(--hover-bg);} 
+
 /* Generic stacked list (image left, copy right) */
 .article-list{list-style:none;margin:0;padding:0;display:grid;gap:3rem;}
 .article-list li{display:flex;gap:1.25rem;border-top:1px solid var(--border);padding:20px 0;transition:background .25s,color .25s;}

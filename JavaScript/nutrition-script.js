@@ -88,26 +88,26 @@
     healthyEatingIRL: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/12/Roast-chicken-with-potatoes-and-onios-thumbnail-732x549.jpg',
-        h: '15 Staple Foods to Make Healthy Eating Easy All Week Long',
-        p: "Here's how to always have something to make for dinner.",
+        h: '15 osnovnih namirnica koje će vam olakšati zdravu prehranu tijekom cijelog tjedna',
+        p: "Evo kako uvijek imati nešto za pripremiti za večeru.",
         link: 'https://www.healthline.com/nutrition/staple-foods-to-make-healthy-eating-easy-all-week-long'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2021/06/healthy-eating-food-kitchen-732x549-thumbnail.jpg',
-        h: 'The Definitive Guide to Healthy Eating in Real Life',
-        p: 'You may hear a lot of talk about how to eat healthy, but getting started is another matter.',
+        h: 'Definitivni vodič za zdravu prehranu u stvarnom životu',
+        p: 'Možda ćete čuti puno razgovora o tome kako se zdravo hraniti, ali početak je druga stvar.',
         link: 'https://www.healthline.com/nutrition/how-to-eat-healthy-guide'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2023/01/female-buying-frozen-food-732-549-feature-thumb-732x549.jpg',
-        h: 'How to Stock Your Pantry for Quick & Easy Meals in Minutes',
-        p: "You'll be eating in no time.",
+        h: 'Kako napuniti svoju smočnicu za brze i jednostavne obroke u nekoliko minuta',
+        p: "Jest ćete u tren oka.",
         link: 'https://www.healthline.com/nutrition/how-to-stock-your-pantry-for-quick-easy-meals-in-minutes'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/12/soy-protein-beans-tofu-732x549-thumbnail-732x549.jpg',
-        h: 'Plant‑based Protein: The Best, the Worst, and Everything In Between',
-        p: 'The pros, the cons, and how to get started.',
+        h: 'Biljni proteini: Najbolji, najgori i sve između',
+        p: 'Prednosti, nedostaci i kako započeti.',
         link: 'https://www.healthline.com/nutrition/plant-based-protein-the-best-the-worst-and-everything-in-between'
       }
     ],
@@ -116,20 +116,20 @@
     foodFreedom: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/12/food_cravings_thumb_732x549-732x549.png',
-        h: 'How to Find Wisdom in Food Cravings, Plus 7 Ways to Make Peace With Them',
-        p: "Cravings aren't the enemy. They're a tool to help you heal.",
+        h: 'Kako pronaći mudrost u žudnji za hranom, plus 7 načina da se s njom pomirite',
+        p: "Žudnje nisu neprijatelj. One su alat koji vam pomaže u ozdravljenju.",
         link: 'https://www.healthline.com/nutrition/finding-the-wisdom-in-food-cravings-plus-tk-techniques-to-make-peace-with-them'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/01/friends-eating-laughing-food-truck-732-549-feature-thumb-732x549.jpg',
-        h: 'How to Ditch Diet Culture and Learn to Trust Your Body’s Cues',
-        p: 'Eating without worrying about numbers may sound easy — but diet culture is loud.',
+        h: 'Kako se riješiti kulture prehrane i naučiti vjerovati znakovima svog tijela',
+        p: 'Jesti bez brige o brojkama može zvučati lako - ali kultura prehrane je glasna.',
         link: 'https://www.healthline.com/nutrition/what-is-food-freedom-getting-started-weight-loss-and-tips'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/07/diet-culture-black-friends-female-portrait-strong-732x549-thumbnail-732x549.jpg',
-        h: 'Dear Fat, Black Girls Who Were Not Spared from Diet Culture — I…',
-        p: 'Exploring identity, body image, and healing.',
+        h: 'Drage debele, crnkinje koje nisu bile pošteđene kulture prehrane — Ja…',
+        p: 'Istraživanje identiteta, slike tijela i iscjeljenja.',
         link: 'https://www.healthline.com/health/diet-culture-affects-fat-black-women'
       }
     ],
@@ -138,20 +138,20 @@
     feelGoodFood: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2021/11/quinoa-732x549-thumbnail-732x549.jpg',
-        h: '12 High‑Carb Foods That Are Incredibly Healthy',
-        p: 'Carbs get a bad rap, but many nutrient‑dense foods contain them.',
+        h: '12 namirnica s visokim udjelom ugljikohidrata koje su nevjerojatno zdrave',
+        p: 'Ugljikohidrati imaju lošu reputaciju, ali mnoge namirnice bogate hranjivim tvarima sadrže ih.',
         link: 'https://www.healthline.com/nutrition/12-healthy-high-carb-foods'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/12/Divya-Alter-Chef-732x549-thumbnail-732x549.jpg',
-        h: "9 Tips for Joyful, Balanced Eating from Divya's Ayurvedic Kitchen",
-        p: "For chef Divya Alter, food isn't just fuel—it's a friend.",
+        h: "9 savjeta za radosnu, uravnoteženu prehranu iz Divyine ajurvedske kuhinje",
+        p: "Za kuharicu Divyu Alter, hrana nije samo gorivo - to je prijatelj.",
         link: 'https://www.healthline.com/nutrition/tips-for-finding-balance-and-joy-through-food-from-divyas-ayurvedic-kitchen'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/12/tabay-atkins-chef-732x549-thumbnail-732x549.jpg',
-        h: 'Vegan Teen Chef Tabay Atkins on Healthy, Heart‑Based Eating',
-        p: 'This young yogi is bringing plant‑based food to Orange County.',
+        h: 'Veganska tinejdžerska kuharica Tabay Atkins o zdravoj prehrani temeljenoj na srcu',
+        p: 'Ova mlada jogi donosi hranu na biljnoj bazi u Orange County.',
         link: 'https://www.healthline.com/nutrition/vegan-teen-chef-tabay-atkins-on-healthy-heart-based-eating'
       }
     ],
@@ -160,20 +160,20 @@
     weightManagement: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/01/friends-eating-laughing-food-truck-732-549-feature-thumb-732x549.jpg',
-        h: 'How to Ditch Diet Culture and Learn to Trust Your Body’s Cues',
-        p: 'Eating without worrying about numbers is possible — here’s how.',
+        h: 'Kako se riješiti kulture prehrane i naučiti vjerovati znakovima svog tijela',
+        p: 'Jesti bez brige o brojkama je moguće - evo kako.',
         link: 'https://www.healthline.com/nutrition/what-is-food-freedom-getting-started-weight-loss-and-tips'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2021/12/black-women-serious-portrait-732x549-thumbnail-732x549.jpg',
-        h: 'Is BMI a Fair Health Metric for Black Women?',
-        p: 'The BMI formula may not work for everyone — here’s why.',
+        h: 'Je li BMI fer pokazatelj zdravlja za crnkinje?',
+        p: 'Formula BMI možda neće funkcionirati za sve - evo zašto.',
         link: 'https://www.healthline.com/nutrition/bmi-for-black-women'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/05/group-outside-doing-moderate-exercise-732x549-thumbnail-732x549.jpg',
-        h: 'How Long Does It Take to Lose Weight?',
-        p: 'Factors that influence a healthy rate of weight loss.',
+        h: 'Koliko je vremena potrebno za gubitak težine?',
+        p: 'Čimbenici koji utječu na zdravu stopu gubitka težine.',
         link: 'https://www.healthline.com/nutrition/how-long-does-it-take-to-lose-weight'
       }
     ],
@@ -182,26 +182,26 @@
     vitaminsSupplements: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/01/omega-fish-oil-pills-supplements-732x549-thumbnail-732x549.jpg',
-        h: 'Omega‑3 Supplement Guide',
-        p: 'Learn the different types of omega‑3 supplements and how to choose one.',
+        h: 'Vodič za dodatke prehrani s omega-3 masnim kiselinama',
+        p: 'Saznajte različite vrste dodataka prehrani s omega-3 masnim kiselinama i kako odabrati jedan.',
         link: 'https://www.healthline.com/nutrition/omega-3-supplement-guide'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2022/12/supplements-vitamins-pills-732x549-thumbnail-732x549.jpg',
-        h: 'The 15 Best Supplements to Boost Your Immune System',
-        p: 'No supplement will cure disease, but some may help your immune response.',
+        h: '15 najboljih dodataka prehrani za jačanje imunološkog sustava',
+        p: 'Nijedan dodatak prehrani neće izliječiti bolest, ali neki mogu pomoći vašem imunološkom odgovoru.',
         link: 'https://www.healthline.com/nutrition/immune-boosting-supplements'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2024/01/431490-8-of-the-Best-Vitamin-D-Supplements-732x549-Feature.jpg',
-        h: '8 Best Vitamin D Supplements in 2025 for Optimal Absorption',
-        p: 'Reviewed and ranked by our dietitians.',
+        h: '8 najboljih dodataka prehrani s vitaminom D u 2025. za optimalnu apsorpciju',
+        p: 'Pregledali i rangirali naši dijetetičari.',
         link: 'https://www.healthline.com/nutrition/best-vitamin-d-supplements'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/05/vitamin-pill-732x549-thumbnail-732x549.jpg',
-        h: 'Can Vitamin D Lower Your Risk of COVID‑19?',
-        p: 'What the evidence says so far.',
+        h: 'Može li vitamin D smanjiti rizik od COVID-19?',
+        p: 'Što dokazi do sada govore.',
         link: 'https://www.healthline.com/nutrition/vitamin-d-coronavirus'
       }
     ],
@@ -210,43 +210,43 @@
     nutritionConditions: [
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/09/citrus-orange-grapefruit-juice-juicer-732x549-thumbnail.jpg',
-        h: 'The 17 Best Foods for High Blood Pressure',
-        p: 'Nutrients that help lower and maintain healthy blood pressure.',
+        h: '17 najboljih namirnica za visoki krvni tlak',
+        p: 'Hranjive tvari koje pomažu u snižavanju i održavanju zdravog krvnog tlaka.',
         link: 'https://www.healthline.com/nutrition/foods-high-blood-pressure'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/11/berries-732x549-thumbnail-1.jpg',
-        h: 'The 13 Most Anti‑Inflammatory Foods You Can Eat',
-        p: 'Reduce chronic inflammation with these choices.',
+        h: '13 namirnica s najvećim protuupalnim djelovanjem koje možete jesti',
+        p: 'Smanjite kroničnu upalu ovim izborima.',
         link: 'https://www.healthline.com/nutrition/13-anti-inflammatory-foods'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/10/healthy-eating-food-cooking-vegetables-fruit-salad-oil-dressing-732x549-thumbnail-732x549.jpg',
-        h: 'Hashimoto Diet: Foods, Supplements, and Tips',
-        p: 'Diet changes that may help manage Hashimoto’s disease.',
+        h: 'Hashimotova dijeta: Namirnice, dodaci prehrani i savjeti',
+        p: 'Promjene u prehrani koje mogu pomoći u upravljanju Hashimotovom bolešću.',
         link: 'https://www.healthline.com/nutrition/hashimoto-diet'
       },
       {
         img: 'https://media.post.rvohealth.io/wp-content/uploads/2020/03/chickpeas-732x549-thumbnail-732x549.jpg',
-        h: '18 of the Best Non‑Perishables for People with Diabetes',
-        p: 'Diabetes‑friendly pantry staples that last.',
+        h: '18 najboljih namirnica koje se ne kvare za osobe s dijabetesom',
+        p: 'Osnovne namirnice za dijabetičare koje traju.',
         link: 'https://www.healthline.com/nutrition/non-perishables-for-people-with-diabetes'
       }
     ],
   
     /* ----------  Editors’ Picks  ---------- */
     editorsPicks: [
-      { img:'https://media.post.rvohealth.io/wp-content/uploads/2021/06/The-Sustainable-Table-Editors-Letter-732x549-Thumbnail-1-1.png', h:'The Sustainable Table: Eating and Living with the Earth in Mind', link:'https://www.healthline.com/program/the-sustainable-table' },
-      { img:'https://media.post.rvohealth.io/wp-content/uploads/2022/02/noella-profile-illustration-732x549.png', h:'Reflecting on the Intersection of Veganism and Blackness', link:'https://www.healthline.com/nutrition/reflecting-on-the-intersection-of-veganism-and-blackness-2' },
-      { img:'https://media.post.rvohealth.io/wp-content/uploads/2022/02/pelau-caribbean-food-732-549-feature-thumb-732x549.jpg', h:'How to Build a Balanced Caribbean Meal', link:'https://www.healthline.com/nutrition/balanced-caribbean-meal' },
-      { img:'https://media.post.rvohealth.io/wp-content/uploads/2021/04/1044185-Im-a-Black-RD.-I-Want-to-Educate-White-People-on-Respecting-Cultural-Foodways_Thumbnail-1.jpg', h:'I’m a Black Dietitian — Food and Racism', link:'https://www.healthline.com/health/food-nutrition/black-dietician-food-and-racism' }
+      { img:'https://media.post.rvohealth.io/wp-content/uploads/2021/06/The-Sustainable-Table-Editors-Letter-732x549-Thumbnail-1-1.png', h:'Održivi stol: Jedenje i život s obzirom na Zemlju', link:'https://www.healthline.com/program/the-sustainable-table' },
+      { img:'https://media.post.rvohealth.io/wp-content/uploads/2022/02/noella-profile-illustration-732x549.png', h:'Razmišljanje o presjeku veganstva i crnaštva', link:'https://www.healthline.com/nutrition/reflecting-on-the-intersection-of-veganism-and-blackness-2' },
+      { img:'https://media.post.rvohealth.io/wp-content/uploads/2022/02/pelau-caribbean-food-732-549-feature-thumb-732x549.jpg', h:'Kako izgraditi uravnotežen karipski obrok', link:'https://www.healthline.com/nutrition/balanced-caribbean-meal' },
+      { img:'https://media.post.rvohealth.io/wp-content/uploads/2021/04/1044185-Im-a-Black-RD.-I-Want-to-Educate-White-People-on-Respecting-Cultural-Foodways_Thumbnail-1.jpg', h:'Ja sam crni dijetetičar — Hrana i rasizam', link:'https://www.healthline.com/health/food-nutrition/black-dietician-food-and-racism' }
     ],
   
     /* ----------  More in Nutrition  ---------- */
     moreNutrition: [
-      { img:'https://media.post.rvohealth.io/wp-content/uploads/2020/02/doctor-patient-732x549-thumbnail-732x549.jpg', h:'What’s the Difference Between a Dietitian and a Nutritionist?', link:'https://www.healthline.com/nutrition/dietitian-vs-nutritionist' },
-      { img:'https://media.post.rvohealth.io/wp-content/uploads/2021/04/male-man-men-talking-kitchen-732x549-thumbnail.jpg', h:'Cultural Competence in Nutrition and Dietetics', link:'https://www.healthline.com/nutrition/cultural-competence-in-dietetics' },
-      { img:'https://media.post.rvohealth.io/wp-content/uploads/2021/05/food-packaging-containers-bamboo-glass-eco-732x549-thumbnail.jpg', h:'5 Types of Eco‑Friendly Food Packaging (and 3 to Avoid)', link:'https://www.healthline.com/nutrition/eco-friendly-food-packaging' }
+      { img:'https://media.post.rvohealth.io/wp-content/uploads/2020/02/doctor-patient-732x549-thumbnail-732x549.jpg', h:'Koja je razlika između dijetetičara i nutricionista?', link:'https://www.healthline.com/nutrition/dietitian-vs-nutritionist' },
+      { img:'https://media.post.rvohealth.io/wp-content/uploads/2021/04/male-man-men-talking-kitchen-732x549-thumbnail.jpg', h:'Kulturna kompetencija u prehrani i dijetetici', link:'https://www.healthline.com/nutrition/cultural-competence-in-dietetics' },
+      { img:'https://media.post.rvohealth.io/wp-content/uploads/2021/05/food-packaging-containers-bamboo-glass-eco-732x549-thumbnail.jpg', h:'5 vrsta ekološki prihvatljive ambalaže za hranu (i 3 koje treba izbjegavati)', link:'https://www.healthline.com/nutrition/eco-friendly-food-packaging' }
     ]
   };
   
